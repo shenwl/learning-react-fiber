@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
-import { Input, Button, List } from 'antd'
-import { width } from 'window-size';
 import store from './store/index'
 import TodoListUI from './TodoListUI'
 import { getInputChangeAction, getAddTodoItemAction, getDeleteTodoItemAction } from './store/actionCreators'
