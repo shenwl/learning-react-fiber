@@ -11,10 +11,14 @@ class TodoList extends Component {
             value={this.props.inputValue}
             onChange = {this.props.handleInputChange.bind(this)}
           />
-          <button onClick={this.handleClick}>提交</button>
+          <button onClick={this.props.handleClick.bind(this)}>提交</button>
         </div>
         <ul>
-          <li>Hello</li>
+          {
+            this.props.list.map((item, index) => {
+              return <li key={index}>{item}</li>
+            })
+          }
         </ul>
       </div>
     )
@@ -37,6 +41,12 @@ const mapDispatchToProps = (dispatch) => {
         value: value
       }
       dispatch(action) 
+    },
+    handleClick() {
+      const action = {
+        type: 'add_item',
+      }
+      dispatch(action)
     }
   }
 }
